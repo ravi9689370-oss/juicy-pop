@@ -70,12 +70,21 @@ jobs:
         npx cap add android
         npx cap sync android
 
+    - name: Verify AndroidManifest.xml icon references
+      run: |
+        grep -n "android:icon\|android:roundIcon" android/app/src/main/AndroidManifest.xml
+
+    - name: Verify mipmap icons generated
+      run: |
+        ls -la android/app/src/main/res/mipmap-*/ic_launcher*.png
+
     - name: Set Executable Permissions for Gradle Wrapper
       run: chmod +x android/gradlew
 
-    - name: Build Debug Android APK
+    - name: Clean and Build Debug Android APK
       run: |
         cd android
+        ./gradlew clean
         ./gradlew assembleDebug
 
     - name: Verify APK Output
