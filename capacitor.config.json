@@ -6,7 +6,7 @@
   "android": {
     "iconBackgroundColor": "#F97316",
     "adaptiveIcon": {
-      "foregroundImage": "assets/logo.png",
+      "foregroundImage": "assets/launcher-icon.png",
       "backgroundColor": "#F97316"
     }
   }

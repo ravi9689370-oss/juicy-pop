@@ -41,7 +41,7 @@ jobs:
     - name: Prepare Icon Source for Capacitor Assets
       run: |
         # @capacitor/assets looks for icon.png in project root
-        cp assets/logo.png icon.png
+        cp assets/launcher-icon.png icon.png
         # Also ensure splash screen source exists (optional)
         # cp assets/logo.png splash.png
 

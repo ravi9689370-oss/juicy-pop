@@ -1,5 +1,5 @@
 // sw.js — custom cache-first shell for zero-network offline play.
-const CACHE_NAME = "juicy-pop-v2";
+const CACHE_NAME = "juicy-pop-v3";
 const SHELL = [
   "./",
   "index.html",
@@ -12,7 +12,8 @@ const SHELL = [
   "manifest.json",
   "assets/icon-192.png",
   "assets/icon-512.png",
-  "assets/logo.png"
+  "assets/logo.png",
+  "assets/launcher-icon.png"
 ];
 
 self.addEventListener("install", (event) => {
