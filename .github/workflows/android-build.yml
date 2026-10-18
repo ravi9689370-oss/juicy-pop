@@ -29,6 +29,7 @@ jobs:
     - name: Install Capacitor Dependencies
       run: |
         npm install
+        npm install --save-dev @capacitor/assets
 
     - name: Stage Web Assets for Capacitor
       run: |
@@ -36,6 +37,17 @@ jobs:
         mkdir -p www
         cp index.html manifest.json sw.js www/
         cp -r css js assets www/
+
+    - name: Prepare Icon Source for Capacitor Assets
+      run: |
+        # @capacitor/assets looks for icon.png in project root
+        cp assets/logo.png icon.png
+        # Also ensure splash screen source exists (optional)
+        # cp assets/logo.png splash.png
+
+    - name: Generate Android Launcher Icons
+      run: |
+        npx @capacitor/assets generate --android --iconBackgroundColor "#F97316" --iconBackgroundColorDark "#F97316"
 
     - name: Setup Java JDK (v17)
       uses: actions/setup-java@v4
