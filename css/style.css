@@ -63,12 +63,10 @@ body {
   width: 100%;
 }
 
-.bounce-title {
-  font-size: 4.5rem;
-  color: #FACC15;
-  text-shadow: 0 4px 0 #7A3502, 0 8px 12px rgba(0,0,0,0.3);
-  -webkit-text-stroke: 3px #451A03;
-  text-align: center;
+.menu-logo {
+  width: min(80vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.30));
   animation: bounceTitle 1.8s ease-in-out infinite alternate;
 }
 
@@ -411,7 +409,7 @@ body {
 
 /* Small screens */
 @media (max-width: 400px) {
-  .bounce-title { font-size: 3.4rem; }
+  .menu-logo { width: 88vw; }
   .character-circle { width: 110px; height: 110px; font-size: 60px; }
   .power-btn { width: 66px; height: 66px; }
   .powerup-bar { gap: 4px; }

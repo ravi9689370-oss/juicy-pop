@@ -1,5 +1,7 @@
 # Juicy Pop: Fruit Merge Mania 🍉
 
+![Juicy Pop logo](assets/logo.png)
+
 An addictive, endless "drop, slide & merge" physics puzzle with 10 evolving tiers
 of cute animated fruits, power-ups (Shake, Bomb, Swap), combo scoring and juicy
 synthesized ASMR audio — 100% offline, zero external assets.
