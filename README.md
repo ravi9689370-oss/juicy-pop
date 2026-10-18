@@ -43,3 +43,4 @@ npm install          # only needed for Capacitor CI builds
 node scripts/gen-icons.js   # regenerate icons
 npx serve .          # quick local test
 ```
+# rebuilt Sun Oct 18 13:51:07 IST 2026
