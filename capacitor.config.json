@@ -1,0 +1,6 @@
+{
+  "appId": "com.juicypop.mergemania",
+  "appName": "Juicy Pop: Fruit Merge Mania",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

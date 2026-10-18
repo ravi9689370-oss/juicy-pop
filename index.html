@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#F97316">
+  <title>Juicy Pop: Fruit Merge Mania</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Scene 1: Main Menu -->
+  <div id="main-menu" class="scene active">
+    <div class="menu-chips">
+      <span class="chip coin-chip">🪙 <span id="coins-menu">300</span></span>
+      <span class="chip best-chip">🏆 BEST <span id="best-menu">12,450</span></span>
+    </div>
+    <div class="tropical-wrapper">
+      <h1 class="bounce-title">JUICY<br>POP</h1>
+      <div class="character-circle">🍉</div>
+      <button id="btn-play-now" class="play-btn">PLAY NOW</button>
+      <div class="footer-buttons">
+        <button id="btn-shop" class="sub-btn">🏪 SHOP</button>
+        <button id="btn-board" class="sub-btn">🏆 RANK</button>
+        <button id="btn-sound" class="sub-btn">🔊 ON</button>
+      </div>
+    </div>
+    <!-- Procedural floating fruit decorations (CSS animated) -->
+    <div class="deco f1">🍓</div>
+    <div class="deco f2">🍊</div>
+    <div class="deco f3">🍍</div>
+    <div class="deco f4">🍒</div>
+  </div>
+
+  <!-- Scene 2: Gameplay Area -->
+  <div id="gameplay-area" class="scene">
+    <header class="wood-header">
+      <div class="scoreboard">SCORE: <span id="score-text">0</span></div>
+      <div class="next-badge">
+        <span>NEXT:</span>
+        <div id="next-preview">🍒</div>
+      </div>
+    </header>
+
+    <div class="container-viewport">
+      <canvas id="physics-canvas"></canvas>
+    </div>
+
+    <!-- Powerup Bar Footer -->
+    <div class="powerup-bar">
+      <button id="pw-shake" class="power-btn">🌪️<span>SHAKE</span><span class="cost-tag">10🪙</span></button>
+      <button id="pw-bomb" class="power-btn">💣<span>BOMB</span><span class="cost-tag">30🪙</span></button>
+      <button id="pw-swap" class="power-btn">🔄<span>SWAP</span><span class="cost-tag">15🪙</span></button>
+      <div class="coin-meter">🪙 <span id="coin-amount">300</span></div>
+    </div>
+  </div>
+
+  <!-- Scene 3: Overlay GameOver/New High Score -->
+  <div id="gameover-popup" class="modal">
+    <div class="popup-box">
+      <h2 id="gameover-title">NEW HIGH SCORE!</h2>
+      <div class="stars-holder" id="stars-holder">🌟🌟🌟</div>
+      <div class="record-data">
+        <p>SCORE: <span id="end-score">0</span></p>
+        <p>REWARD: <span class="coin-gain">+250 COINS</span></p>
+        <p>BEST: <span id="best-score">12,450</span></p>
+      </div>
+      <button id="btn-play-again" class="play-again-btn">PLAY AGAIN</button>
+      <div class="modal-footer">
+        <button id="btn-home">HOME</button>
+        <button id="btn-share">SHARE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shop Modal -->
+  <div id="modal-shop" class="modal">
+    <div class="popup-box small">
+      <h2>🏪 SHOP</h2>
+      <div class="shop-row"><span>🌪️ SHAKE — jolt stuck fruits</span><b>10🪙</b></div>
+      <div class="shop-row"><span>💣 BOMB — pop 4 smallest</span><b>30🪙</b></div>
+      <div class="shop-row"><span>🔄 SWAP — trade next fruit</span><b>15🪙</b></div>
+      <p class="shop-note">Balance: 🪙 <span id="shop-coins">300</span> — Earn +250 every GAME OVER!</p>
+      <button id="btn-shop-close" class="play-again-btn">OK</button>
+    </div>
+  </div>
+
+  <!-- Rank Modal -->
+  <div id="modal-rank" class="modal">
+    <div class="popup-box small">
+      <h2>🏆 RANK</h2>
+      <div class="shop-row"><span>BEST SCORE</span><b id="rank-best">12,450</b></div>
+      <div class="shop-row"><span>TOTAL MERGES</span><b id="rank-merges">0</b></div>
+      <div class="shop-row"><span>GAMES PLAYED</span><b id="rank-games">0</b></div>
+      <div class="shop-row"><span>COIN SAVED</span><b id="rank-coins">300</b></div>
+      <button id="btn-rank-close" class="play-again-btn">OK</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/fruits.js"></script>
+  <script src="js/physics.js"></script>
+  <script src="js/game.js"></script>
+  <script>
+    // PWA offline support (skip on native Capacitor schemes where SW is unnecessary)
+    window.addEventListener("load", () => {
+      if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>
